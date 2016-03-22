@@ -113,49 +113,23 @@
 			<td style="width: 178px">PATIENT</td>
 			<td style="width: 11px">:</td>
 			<td>
-				<!--<input name="patient_id" style="width: 236px" type="text" value="<?= get_value($prescription, 'patient_id') ?>">-->
-				<select name="patient_id">
-					<option value="">-- Select Patient --</option>
-					<?php foreach($paLookup as $idx => $row) { 
-						$curr = get_value($prescription, 'patient_id');
-						$selected = !empty($curr) && $curr == $row['patient_id'] ? "selected" : ""; 
-					?>
-						<option <?= $selected ?> value="<?= $row['patient_id'] ?>"><?= $row["patient_fname"] . " " . $row["patient_lname"] ?></option>
-					<?php } ?>
-				</select>
-			
+				<input name="patient_id" style="width: 236px" type="text" value="<?= get_value($prescription, 'patient_id') ?>">
 			</td>
 		</tr>
 		<tr>
 			<td style="width: 178px; height: 26px;">PHYSICIAN</td>
 			<td style="width: 11px; height: 26px;">:</td>
 			<td style="height: 26px">
-				<!--<input name="physician_id" style="width: 236px" type="text" value="<?= get_value($prescription, 'physician_id') ?>">-->
-				<select name="physician_id">
-					<option value="">-- Select Physician --</option>
-					<?php foreach($phLookup as $idx => $row) { 
-						$curr = get_value($prescription, 'physician_id');
-						$selected = !empty($curr) && $curr == $row['physician_id'] ? "selected" : ""; 
-					?>
-						<option <?= $selected ?> value="<?= $row['physician_id'] ?>"><?= $row["physician_fname"] . " " . $row["physician_lname"] ?></option>
-					<?php } ?>
-				</select>
+				<input name="physician_id" style="width: 236px" type="text" value="<?= get_value($prescription, 'physician_id') ?>">
+
 			</td>
 		</tr>
 		<tr>
 			<td style="width: 178px">MEDICATION</td>
 			<td style="width: 11px">&nbsp;</td>
 			<td>
-				<!--<input name="medication_id" style="width: 235px" type="text" value="<?= get_value($prescription, 'medication_id') ?>">-->
-				<select name="medication_id">
-					<option value="">-- Select Medication --</option>
-					<?php foreach($medLookup as $idx => $row) { 
-						$curr = get_value($prescription, 'medication_id');
-						$selected = !empty($curr) && $curr == $row['medication_id'] ? "selected" : ""; 
-					?>
-						<option <?= $selected ?> value="<?= $row['medication_id'] ?>"><?= $row["medication_name"] . " (" . $row["medication_dosage"] . " " . $row["medication_route"] . ")" ?></option>
-					<?php } ?>
-				</select>
+				<input name="medication_id" style="width: 235px" type="text" value="<?= get_value($prescription, 'medication_id') ?>">
+
 			
 			</td>
 		</tr>
