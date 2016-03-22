@@ -1,7 +1,7 @@
 <?php	
 	
 	$serverName = "(local)\sqlexpress";
-	$dbName = "";
+	$dbName = "sess02";
 		
 	try {
 		$conn = new PDO( "sqlsrv:server=$serverName ; Database=$dbName", "", "");
