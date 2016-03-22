@@ -15,7 +15,8 @@
 		if ($act === "del") {
 						
 			//create statement
-			$sql = "";
+			$sql = "DELETE FROM medication
+					WHERE medication_id = ?";
 					
 			//prepare statement
 			$stmt = $conn->prepare($sql);
@@ -40,7 +41,9 @@
 		else if ($act === "edit") {
 			
 			//create statement to get specific id
-			$sql = "";
+			$sql = "SELECT medication_id, medication_name, medication_dosage, medication_route
+					FROM medication
+					WHERE medication_id = ?";
 			
 			//prepare statement
 			$stmt = $conn->prepare($sql);
@@ -75,20 +78,24 @@
 			<td style="width: 139px">ID</td>
 			<td style="width: 11px">:</td>
 			<td>
-			<input name="medication_id" style="width: 50px" type="text" readonly="readonly" value=""></td>
+			<input name="medication_id" style="width: 50px" type="text" readonly="readonly" value="<?= get_value($med, 'medication_id') ?>"></td>
 		</tr>
 		<tr>
 			<td style="width: 139px">MED NAME</td>
 			<td style="width: 11px">:</td>
-			<td><input name="medication_name" style="width: 300px" type="text" value=""></td>
+			<td><input name="medication_name" style="width: 300px" type="text" value="<?= get_value($med, 'medication_name') ?>"></td>
 		</tr>
 		<tr>
 			<td style="width: 139px">DOSAGE</td>
 			<td style="width: 11px">:</td>
 			<td>
-			<input name="medication_dosage" style="width: 67px" type="text" value=""></td>
+			<input name="medication_dosage" style="width: 67px" type="text" value="<?= get_value($med, 'medication_dosage') ?>"></td>
 		</tr>
-
+		<tr>
+			<td style="width: 139px">ROUTE</td>
+			<td style="width: 11px">:</td>
+			<td><input name="medication_route" type="text" value="<?= get_value($med, 'medication_route') ?>"></td>
+		</tr>
 		<tr>
 			<td style="width: 139px">&nbsp;</td>
 			<td style="width: 11px">&nbsp;</td>

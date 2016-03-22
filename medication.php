@@ -3,7 +3,8 @@
 	include("dbconnect.php");
 
 	/* Get all data physician */
-	$sql = "";
+	$sql = "SELECT medication_id, medication_name, medication_dosage, medication_route
+			FROM medication";
 			
 	/* Execute query */
 	$stmt = $conn->query($sql);
@@ -25,7 +26,10 @@
 
 	<table class="table table-striped">
 		<tr>
-			<th style="width: 50px">ID</th>	
+			<th style="width: 50px">ID</th>
+			<th style="width: 270px">MED NAME</th>
+			<th style="width: 129px">DOSAGE</th>			
+			<th style="width: 203px">ROUTE</th>			
 			<th style="width: 100px">Action</th>
 		</tr>
 		
@@ -33,7 +37,12 @@
 		
 		<tr>
 			<td><?= $row["medication_id"]?></td>
+			<td style="width: 270px"><?= $row["medication_name"]?></td>
+			<td style="width: 129px"><?= $row["medication_dosage"]?></td>
+			<td style="width: 203px"><?= $row["medication_route"]?></td>
 			<td>
+				<a href="medication.form.php?act=edit&id=<?= $row["medication_id"]?>">Edit</a>
+				<a href="medication.form.php?act=del&id=<?= $row["medication_id"]?>">Delete</a></td>
 		</tr>
 		
 		<?php } ?>

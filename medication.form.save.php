@@ -8,16 +8,18 @@
 		//Do the saving process
 		//Get all the information
 		$mName 		= $_REQUEST['medication_name'];
-
+		$mDosage 	= $_REQUEST['medication_dosage'];
+		$mRoute 	= $_REQUEST['medication_route'];
 		
 		//Create query statement
-		$sql = "";
+		$sql = "INSERT INTO medication (medication_name, medication_dosage, medication_route)
+				VALUES(?, ?, ?)";
 				
 		//prepare statement
 		$stmt = $conn->prepare($sql);
 		
 		//prepare parameter
-		$params = array(  );
+		$params = array( $mName , $mDosage , $mRoute );
 		
 		//execute statement with parameter value
 		try {
@@ -39,16 +41,23 @@
 		//Do the updating process
 		//Get all the information
 		$mId 		= $_REQUEST['medication_id'];
-
+		$mName 		= $_REQUEST['medication_name'];
+		$mDosage 	= $_REQUEST['medication_dosage'];
+		$mRoute 	= $_REQUEST['medication_route'];
 		
 		//Create query statement
-		$sql = "";
+		$sql = "UPDATE medication
+				SET medication_name = ?, 
+					medication_dosage = ?,
+					medication_route = ?
+				WHERE medication_id = ?
+				";
 				
 		//prepare statement
 		$stmt = $conn->prepare($sql);
 		
 		//prepare parameter
-		$params = array( );
+		$params = array( $mName , $mDosage , $mRoute , $mId );
 		
 		//execute statement with parameter value
 		try {
