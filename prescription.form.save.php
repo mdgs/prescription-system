@@ -13,7 +13,8 @@
 		$taken 	= $_REQUEST['prescription_taken_daily'];
 		
 		//Create query statement
-		$sql = "";
+		$sql = "INSERT INTO prescription (patient_id, physician_id, medication_id, prescription_taken_daily)
+				VALUES(?, ?, ?, ?)";
 				
 		//prepare statement
 		$stmt = $conn->prepare($sql);
@@ -47,7 +48,13 @@
 		$taken 			= $_REQUEST['prescription_taken_daily'];
 		
 		//Create query statement
-		$sql = "";
+		$sql = "UPDATE prescription
+				SET patient_id = ?, 
+					physician_id = ?,
+					medication_id = ?,
+					prescription_taken_daily = ?
+				WHERE prescription_id = ?
+				";
 				
 		//prepare statement
 		$stmt = $conn->prepare($sql);

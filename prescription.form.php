@@ -15,7 +15,8 @@
 		if ($act === "del") {
 						
 			//create statement
-			$sql = "";
+			$sql = "DELETE FROM prescription 
+					WHERE prescription_id = ?";
 					
 			//prepare statement
 			$stmt = $conn->prepare($sql);
@@ -40,7 +41,14 @@
 		else if ($act === "edit") {
 			
 			//create statement to get specific id
-			$sql = "";
+			$sql = "SELECT a.physician_fname, a.physician_lname, b.patient_fname, b.patient_lname, 
+						   c.medication_name, c.medication_dosage, c.medication_route, 
+						   d.prescription_id, d.physician_id, d.patient_id, d.medication_id, d.prescription_taken_daily
+					FROM physician a, patient b, medication c, prescription d
+					WHERE a.physician_id=d.physician_id 
+						AND b.patient_id=d.patient_id 
+						AND c.medication_id=d.medication_id
+						AND prescription_id = ?";
 			
 			//prepare statement
 			$stmt = $conn->prepare($sql);
