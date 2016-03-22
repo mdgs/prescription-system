@@ -15,7 +15,8 @@
 		if ($act === "del") {
 						
 			//create statement
-			$sql = "";
+			$sql = "DELETE FROM patient
+					WHERE patient_id = ?";
 					
 			//prepare statement
 			$stmt = $conn->prepare($sql);
@@ -40,7 +41,9 @@
 		else if ($act === "edit") {
 			
 			//create statement to get specific id
-			$sql = "";
+			$sql = "SELECT patient_id, patient_fname, patient_lname
+					FROM patient
+					WHERE patient_id = ?";
 			
 			//prepare statement
 			$stmt = $conn->prepare($sql);
@@ -75,18 +78,18 @@
 			<td style="width: 139px">ID</td>
 			<td style="width: 11px">:</td>
 			<td>
-			<input name="patient_id" style="width: 50px" type="text" readonly="readonly" value=""></td>
+			<input name="patient_id" style="width: 50px" type="text" readonly="readonly" value="<?= get_value($patient, 'patient_id') ?>"></td>
 		</tr>
 		<tr>
 			<td style="width: 139px">FIRST NAME</td>
 			<td style="width: 11px">:</td>
-			<td><input name="patient_fname" style="width: 300px" type="text" value=""></td>
+			<td><input name="patient_fname" style="width: 300px" type="text" value="<?= get_value($patient, 'patient_fname') ?>"></td>
 		</tr>
 		<tr>
 			<td style="width: 139px">LAST NAME</td>
 			<td style="width: 11px">:</td>
 			<td>
-			<input name="patient_lname" style="width: 300px" type="text" value=""></td>
+			<input name="patient_lname" style="width: 300px" type="text" value="<?= get_value($patient, 'patient_lname') ?>"></td>
 		</tr>
 		<tr>
 			<td style="width: 139px">&nbsp;</td>

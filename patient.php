@@ -3,7 +3,8 @@
 	include("dbconnect.php");
 
 	/* Get all data physician */
-	$sql = "";
+	$sql = "SELECT patient_id, patient_fname, patient_lname
+			FROM patient";
 			
 	/* Execute query */
 	$stmt = $conn->query($sql);
@@ -26,14 +27,20 @@
 	<table class="table table-striped">
 		<tr>
 			<th style="width: 50px">ID</th>
+			<th style="width: 340px">FIRST NAME</th>
+			<th style="width: 340px">LAST NAME</th>
 			<th style="width: 100px">Action</th>
 		</tr>
 		
 		<?php foreach($rows as $idx => $row) { ?>
 		
 		<tr>
-			<td></td>
-			<td></td>
+			<td><?= $row["patient_id"]?></td>
+			<td><?= $row["patient_fname"]?></td>
+			<td><?= $row["patient_lname"]?></td>
+			<td>
+				<a href="patient.form.php?act=edit&id=<?= $row["patient_id"]?>">Edit</a>
+				<a href="patient.form.php?act=del&id=<?= $row["patient_id"]?>">Delete</a></td>
 		</tr>
 		
 		<?php } ?>

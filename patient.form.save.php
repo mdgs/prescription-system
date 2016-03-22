@@ -7,16 +7,18 @@
 		
 		//Do the saving process
 		//Get all the information
-		$pFName = $_REQUEST[''];
+		$pFName = $_REQUEST['patient_fname'];
+		$pLName = $_REQUEST['patient_lname'];
 		
 		//Create query statement
-		$sql = "";
+		$sql = "INSERT INTO patient (patient_fname, patient_lname)
+				VALUES(?, ?)";
 				
 		//prepare statement
 		$stmt = $conn->prepare($sql);
 		
 		//prepare parameter
-		$params = array();
+		$params = array( $pFName , $pLName );
 		
 		//execute statement with parameter value
 		try {
@@ -38,16 +40,21 @@
 		//Do the updating process
 		//Get all the information
 		$pId 	= $_REQUEST['patient_id'];
-
+		$pFName = $_REQUEST['patient_fname'];
+		$pLName = $_REQUEST['patient_lname'];
 		
 		//Create query statement
-		$sql = "";
+		$sql = "UPDATE patient
+				SET patient_fname = ?, 
+					patient_lname = ?
+				WHERE patient_id = ?
+				";
 				
 		//prepare statement
 		$stmt = $conn->prepare($sql);
 		
 		//prepare parameter
-		$params = array( );
+		$params = array( $pFName , $pLName, $pId );
 		
 		//execute statement with parameter value
 		try {
