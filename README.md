@@ -3,7 +3,7 @@
 
 ###Download the code:
 ```bash
->git clone https://github.com/mdgs/prescription-system
+>git clone https://github.com/mdgs/prescription-system.git
 ```
 
 ###Step to check every step of the process (check on the release page for the tag name)
