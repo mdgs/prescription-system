@@ -8,16 +8,16 @@
 
 ###Step to check every step of the process (check on the release page for the tag name)
 ```bash
->git checkout -f satu
->git checkout -f dua
->git checkout -f tiga
->git checkout -f empat
->git checkout -f lima
->git checkout -f enam
->git checkout -f tujuh
->git checkout -f delapan
->git checkout -f sembilan
->git checkout -f sepuluh
->git checkout -f sebelas
->git checkout -f duabelas
+>git checkout -f stage01
+>git checkout -f stage02
+>git checkout -f stage03
+>git checkout -f stage04
+>git checkout -f stage05
+>git checkout -f stage06
+>git checkout -f stage07
+>git checkout -f stage08
+>git checkout -f stage09
+>git checkout -f stage10
+>git checkout -f stage11
+>git checkout -f stage12
 ```
