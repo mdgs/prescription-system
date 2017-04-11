@@ -23,6 +23,7 @@
             <li ><a href="patient.php">Patient</a></li>
             <li ><a href="medication.php">Medication</a></li>
             <li ><a href="prescription.php">Prescription</a></li>
+            <li ><a href="report.php">Report</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Prescription System</h3>

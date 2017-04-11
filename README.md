@@ -21,3 +21,8 @@
 >git checkout -f stage11
 >git checkout -f stage12
 ```
+
+### Sample Report
+```
+>git chckout -f stage-report
+```
